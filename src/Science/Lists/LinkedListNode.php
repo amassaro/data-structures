@@ -4,11 +4,11 @@ namespace Science\Lists;
 
 class LinkedListNode {
 
-	var $value = null;
-	var $next = null;
+    var $value = null;
+    var $next = null;
 
-	function __construct($val) {
-		$this->value = $val;
-	}
+    function __construct($val) {
+        $this->value = $val;
+    }
 
 }
