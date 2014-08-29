@@ -11,14 +11,14 @@ foreach(range(1,10) as $val) {
 }
 
 
-function recurseListReverse($node) {
+function reverseListRecursive($node) {
     if ($node == null)
         return;
     elseif ($node->next == null)
         echo $node->value . "\n";
     else
     {
-        recurseListReverse($node->next);
+        reverseListRecursive($node->next);
         echo $node->value. "\n";
     }
 }
@@ -36,8 +36,15 @@ function reverseListSwap($list) {
     $list->head = $cur;
 }
 
+echo 'Printing List in Order' . "\n";
+$node = $list->head;
+while($node != null) {
+    echo $node->value . "\n";
+    $node = $node->next;
+}
+
 echo 'Recursive List in Reverse' . "\n";
-recurseListReverse($list->head);
+reverseListRecursive($list->head);
 
 echo 'Swap List in Reverse' . "\n";
 reverseListSwap($list);
