@@ -2,20 +2,9 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use Science\Lists\LinkedList;
-
-$list = new LinkedList();
-
-foreach(range(1,10) as $val) {
-    $list->insert($val);
-}
-
-
 function reverseListRecursive($node) {
     if ($node == null)
         return;
-    elseif ($node->next == null)
-        echo $node->value . "\n";
     else
     {
         reverseListRecursive($node->next);
@@ -36,6 +25,17 @@ function reverseListSwap($list) {
     $list->head = $cur;
 }
 
+use Science\Lists\SinglyLinkedList;
+use Science\Lists\DoublyLinkedList;
+
+
+$list = new SinglyLinkedList();
+
+foreach(range(1,10) as $val) {
+    $list->insertTail($val);
+}
+
+
 echo 'Printing List in Order' . "\n";
 $node = $list->head;
 while($node != null) {
@@ -53,3 +53,62 @@ while($node != null) {
     echo $node->value . "\n";
     $node = $node->next;
 }
+
+unset($list);
+
+
+$list = new SinglyLinkedList();
+
+foreach(range(1,10) as $val) {
+    $list->insertHead($val);
+}
+
+$list->remove(2);
+$list->remove(4);
+
+echo 'Printing List in Order' . "\n";
+$node = $list->head;
+while($node != null) {
+    echo $node->value . "\n";
+    $node = $node->next;
+}
+
+echo 'Recursive List in Reverse' . "\n";
+reverseListRecursive($list->head);
+
+echo 'Swap List in Reverse' . "\n";
+reverseListSwap($list);
+$node = $list->head;
+while($node != null) {
+    echo $node->value . "\n";
+    $node = $node->next;
+}
+
+
+$list = new DoublyLinkedList();
+
+foreach(range(1,10) as $val) {
+    $list->insertTail($val);
+}
+
+$list->remove(3);
+$list->remove(5);
+
+echo 'Printing List in Order' . "\n";
+$node = $list->head;
+while($node != null) {
+    echo $node->value . "\n";
+    $node = $node->next;
+}
+
+echo 'Recursive List in Reverse' . "\n";
+reverseListRecursive($list->head);
+
+echo 'Swap List in Reverse' . "\n";
+reverseListSwap($list);
+$node = $list->head;
+while($node != null) {
+    echo $node->value . "\n";
+    $node = $node->next;
+}
+
